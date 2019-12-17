@@ -9,5 +9,4 @@ script: python3 platform-info.py
 
 script:
   - |
-    python3 platform-info.py
-    python -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
+    python3 -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
