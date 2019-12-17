@@ -1,14 +1,40 @@
 language: python
-python: 3.7
-os:
-  - linux
-  - osx
-  - windows
+group: travis_latest
+
+git:
+  depth: 25
+  quiet: true
+
+python:
+- 3.7
+- 3.6
+
+matrix:
+  include:
+  - os: linux
+    name: PEP8 MyPy Coverage
+    python: 3.7
+    install: pip install -e .[tests,cov]
+    script:
+    - flake8
+    - mypy .
+    - pytest --cov
+    after_success:
+    - coveralls
+  - os: osx
+    language: minimal
+    install: pip3 install -e .[tests]
+  - os: windows
+    language: minimal
+    before_install:
+    - choco install python3
+    - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+
 install:
-  - pip3 install --upgrade pip
+  - pip install --upgrade pip
   - pip install pandas sphinx
-script: python3 platform-info.py
+script: python platform-info.py
 
 script:
   - |
-    python3 -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
+    python -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
