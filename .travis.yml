@@ -1,24 +1,20 @@
 language: bash
 
+python: 3.7
+
 os:
   - linux
   - osx
   - windows
 
-python:
-  - 3.5
-  - 3.6
-  - 3.7
-
 install:
-  # Setup environment
   - |
-    echo "Creating a Python $PYTHON_VERSION environment..."
+    python pip install --upgrade pip
     pip install pandas sphinx
 
 script:
-  # Testing make file
   - |
+    python3 platform-info.py
     cd docs
     if [ "${TRAVIS_OS_NAME}" == "windows" ]; then
         MAKE=".\make.bat"
