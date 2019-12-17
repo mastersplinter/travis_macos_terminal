@@ -4,7 +4,9 @@ os:
   - linux
   - osx
   - windows
-install: pip3 install --upgrade pip
+install:
+  - pip3 install --upgrade pip
+  - pip install pandas sphinx
 script: python3 platform-info.py
 
 script:
