@@ -19,7 +19,7 @@ matrix:
       script: |
         echo "terminal columns reported by TPUT:"
         tput cols
-        echo "terminal columns reported by TPUT:"
+        echo "terminal columns reported by `python shutil.get_terminal_size()`:"
         python3 -m terminal_size
         python3 -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
     - name: "Python 3.7.3 on macOS 10.14"
@@ -33,8 +33,7 @@ matrix:
       script: |
         echo "terminal columns reported by TPUT:"
         tput cols
-        echo "terminal columns reported by TPUT:"
-
+        echo "terminal columns reported by `python shutil.get_terminal_size()`:"
         python3 -m terminal_size
         python3 -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
     - name: "Python 3.7.3 on macOS 10.15"
@@ -48,8 +47,7 @@ matrix:
       script: |
         echo "terminal columns reported by TPUT:"
         tput cols
-        echo "terminal columns reported by TPUT:"
-
+        echo "terminal columns reported by `python shutil.get_terminal_size()`:"
         python3 -m terminal_size
         python3 -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
     #  ====== WINDOWS =========
@@ -85,7 +83,7 @@ before_install:
   - pip install -U pip
   - pip install pandas sphinx
 script: |
-  echo "terminal columns reported by TPUT:" 
+  echo "terminal columns reported by TPUT:"
   tput cols
   echo "terminal columns reported by `python shutil.get_terminal_size()`:"
   python3 -m terminal_size
