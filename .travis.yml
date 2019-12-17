@@ -9,8 +9,8 @@ os:
 
 install:
   - |
-    python pip install --upgrade pip
-    pip install pandas sphinx
+    pip3 install --upgrade pip
+    pip3 install pandas sphinx
 
 script:
   - |
@@ -21,4 +21,4 @@ script:
     else
         MAKE=make
     fi
-    $MAKE doctest && python -m sphinx -E -W "source" "_build"
+    $MAKE doctest && python3 -m sphinx -E -W "source" "_build"
