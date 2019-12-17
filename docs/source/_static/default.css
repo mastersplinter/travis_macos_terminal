@@ -1,0 +1,23 @@
+a {
+  color: #26b079;
+}
+
+.toctree-l1 a:active {
+  background-color: #26b079 !important;
+}
+
+.wy-nav-top {
+  background-color: #2ac185;
+}
+
+.wy-side-nav-search {
+  background-color: #2ac185;
+}
+
+.wy-side-nav-search input[type=text] {
+  border-color: #2ac185;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+  color: #26b079;
+}

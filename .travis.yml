@@ -1,24 +1,13 @@
-language: bash
-
+language: python
 python: 3.7
-
 os:
   - linux
   - osx
   - windows
-
-install:
-  - |
-    pip3 install --upgrade pip
-    pip3 install pandas sphinx
+install: pip3 install --upgrade pip
+script: python3 platform-info.py
 
 script:
   - |
     python3 platform-info.py
-    cd docs
-    if [ "${TRAVIS_OS_NAME}" == "windows" ]; then
-        MAKE=".\make.bat"
-    else
-        MAKE=make
-    fi
-    $MAKE doctest && python3 -m sphinx -E -W "source" "_build"
+    python -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
