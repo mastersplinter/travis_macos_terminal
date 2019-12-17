@@ -28,9 +28,7 @@ author = 'Nigel Markey'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
-    'sphinx_autodoc_typehints'
+    'sphinx.ext.doctest'
 ]
 
 # doctest_global_setup = """
