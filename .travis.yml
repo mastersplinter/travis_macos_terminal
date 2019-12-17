@@ -26,6 +26,15 @@ matrix:
         - pip install -U pip
         - pip install pandas sphinx
       script: python -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
+    - name: "Python 3.7.3 on macOS 10.14"
+      os: osx
+      osx_image: xcode11.2.1  # Python 3.7.3 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - python --version
+        - pip install -U pip
+        - pip install pandas sphinx
+      script: python -m sphinx -E -W -b=doctest "docs/source" "docs/_build"
     #  ====== WINDOWS =========
     - name: "Python 3.5.4 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
@@ -34,8 +43,7 @@ matrix:
         - choco install python --version 3.5.4
         - python --version
         - python -m pip install --upgrade pip
-        - pip install --upgrade pytest
-        - pip install codecov
+        - pip install pandas sphinx
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
     - name: "Python 3.6.8 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
@@ -44,8 +52,7 @@ matrix:
         - choco install python --version 3.6.8
         - python --version
         - python -m pip install --upgrade pip
-        - pip install --upgrade pytest
-        - pip install codecov
+        - pip install pandas sphinx
       env: PATH=/c/Python36:/c/Python36/Scripts:$PATH
     - name: "Python 3.7.4 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
@@ -54,8 +61,7 @@ matrix:
         - choco install python --version 3.7.4
         - python --version
         - python -m pip install --upgrade pip
-        - pip install --upgrade pytest
-        - pip install codecov
+        - pip install pandas sphinx
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 before_install:
   - python --version
